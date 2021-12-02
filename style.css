@@ -1,0 +1,25 @@
+.small-input, .small-label {
+    display:inline-block;
+    min-width: 22px;
+    max-width: 22px;
+}
+input[type=number] { 
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0; 
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+}
+.inputs {
+    width: 400px;
+    display:flex;
+    flex-direction: column;
+}
+.outputs {
+    width: 400px;
+    display:flex;
+    flex-direction: column;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+    <title>Bit changer</title>
+</head>
+
+<body>
+    <div class="inputs">
+        <span><input type="text" name="hexHere" id="hexHere">
+            <label for="hexHere">Enter you hexadecimal configuration string here</label></span>
+        <button id="convertToBinary">Convert to binary</button>
+    </div>
+    <p>The normal and reversed are kept in sync, feel free to edit whichever.</p>
+    <p>In the normal order</p>
+    <div id="bits-container"></div>
+    <div id="numberingContainer"></div>
+    <p>In the reversed order</p>
+    <div id="rbits-container"></div>
+    <div id="rnumberingContainer"></div>
+    <div class="outputs">
+        <button id="outputBinaryLiteral">Output to binary literal normal order.</button>
+        <button id="outputHexLiteral">Output to hex literal</button>
+        <input type="text" name="" id="outputHere" disabled>
+        <label id="outputLabel" for="outputHere">Enter you hexadecimal configuration string here</label></span>
+    </div>
+</body>
+
+</html>

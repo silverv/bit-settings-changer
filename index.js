@@ -68,27 +68,36 @@ window.addEventListener('load', function () {
         }
     }
     btnConvertToBinary.addEventListener('click', function () {
-        let convertedString = hex2bin(hexHere.value, bitsCount)
-        for (let i = 0; i < bitsCount; i++) {
-            let ithElement = document.querySelector("#i" + i);
-            ithElement.value = convertedString[i];
-        }
-        for (let i = bitsCount - 1; i >= 0; i--) {
-            let ithElement = document.querySelector("#ri" + i);
-            ithElement.value = convertedString[i];
+        if (hexHere.value.startsWith("0x")) {
+            let convertedString = hex2bin(hexHere.value, bitsCount)
+            for (let i = 0; i < bitsCount; i++) {
+                let ithElement = document.querySelector("#i" + i);
+                ithElement.value = convertedString[i];
+            }
+            for (let i = bitsCount - 1; i >= 0; i--) {
+                let ithElement = document.querySelector("#ri" + i);
+                ithElement.value = convertedString[i];
+            }
+        } else {
+            alert("A hex literal should start with the two characters: \"0x\"");
         }
     });
 
     btnPushBinary.addEventListener('click', function () {
-        let convertedString = binHere.value.replace("0b", "");
-        for (let i = 0; i < bitsCount; i++) {
-            let ithElement = document.querySelector("#i" + i);
-            ithElement.value = convertedString[i];
+        if (binHere.value.startsWith("0b")) {
+            let convertedString = binHere.value.replace("0b", "");
+            for (let i = 0; i < bitsCount; i++) {
+                let ithElement = document.querySelector("#i" + i);
+                ithElement.value = convertedString[i];
+            }
+            for (let i = bitsCount - 1; i >= 0; i--) {
+                let ithElement = document.querySelector("#ri" + i);
+                ithElement.value = convertedString[i];
+            }
+        } else {
+            alert("A binary literal should start with the two characters: \"0b\"");
         }
-        for (let i = bitsCount - 1; i >= 0; i--) {
-            let ithElement = document.querySelector("#ri" + i);
-            ithElement.value = convertedString[i];
-        }
+
     });
     function removeAllChildNodes(parent) {
         while (parent.firstChild) {

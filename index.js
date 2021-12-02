@@ -10,7 +10,9 @@ window.addEventListener('load', function () {
     let rbitsContainer = document.querySelector("#rbits-container");
     let rnumberingContainer = document.querySelector("#rnumberingContainer");
     let btnConvertToBinary = document.querySelector("#convertToBinary")
+    let btnPushBinary = document.querySelector("#btnPushBinary")
     let hexHere = document.querySelector("#hexHere")
+    let binHere = document.querySelector("#binHere")
     let outputHere = document.querySelector("#outputHere");
     let outputLabel = document.querySelector("#outputLabel");
 
@@ -52,6 +54,18 @@ window.addEventListener('load', function () {
     }
     btnConvertToBinary.addEventListener('click', function () {
         let convertedString = hex2bin(hexHere.value)
+        for (let i = 0; i < 32; i++) {
+            let ithElement = document.querySelector("#i" + i);
+            ithElement.value = convertedString[i];
+        }
+        for (let i = 31; i >= 0; i--) {
+            let ithElement = document.querySelector("#ri" + i);
+            ithElement.value = convertedString[i];
+        }
+    });
+
+    btnPushBinary.addEventListener('click', function () {
+        let convertedString = binHere.value.replace("0b", "");
         for (let i = 0; i < 32; i++) {
             let ithElement = document.querySelector("#i" + i);
             ithElement.value = convertedString[i];

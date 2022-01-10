@@ -51,7 +51,9 @@ window.addEventListener('load', function () {
             let ithElement = document.querySelector("#i" + i);
             gatheredValue += ithElement.value;
         }
-        outputHere.value = "0x" + bin2hex(gatheredValue, Math.ceil(bitsCount / 8));
+        let calculated_padding = Math.ceil(bitsCount / 4)
+        console.log("Calculated_padding: " + calculated_padding)
+        outputHere.value = "0x" + bin2hex(gatheredValue, calculated_padding);
         outputLabel.textContent = "This is your hex literal output";
     });
 

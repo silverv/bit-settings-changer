@@ -30,6 +30,7 @@ window.addEventListener('load', function () {
     let binHere = document.querySelector("#binHere")
     let outputHere = document.querySelector("#outputHere");
     let outputLabel = document.querySelector("#outputLabel");
+    let highlightByTwo = document.querySelector("#doByTwoHighlight");
 
     let btnOutputBinaryLiteral = document.querySelector("#outputBinaryLiteral");
     let btnOutputHexLiteral = document.querySelector("#outputHexLiteral");
@@ -52,6 +53,10 @@ window.addEventListener('load', function () {
         }
         outputHere.value = "0x" + bin2hex(gatheredValue, Math.ceil(bitsCount / 8));
         outputLabel.textContent = "This is your hex literal output";
+    });
+
+    highlightByTwo.addEventListener("change", function () {
+        refresh();
     });
     function syncFromNormal() {
         for (let i = 0; i < bitsCount; i++) {
@@ -111,6 +116,7 @@ window.addEventListener('load', function () {
         removeAllChildNodes(rnumberingContainer);
         setTimeout(() => {
             for (let i = 0; i < bitsCount; i++) {
+
                 let inputElement = document.createElement("input");
                 inputElement.type = "text";
                 inputElement.id = "i" + i
@@ -127,6 +133,9 @@ window.addEventListener('load', function () {
                 });
                 let numberingElement = document.createElement("input");
                 numberingElement.className = "small-input";
+                if (highlightByTwo.checked && ((i % 4 == 0) || ((i - 1) % 4 == 0))) {
+                    inputElement.className += " highlighted";
+                }
                 numberingElement.setAttribute("disabled", true)
                 numberingElement.value = bitsCount - 1 - i
                 numberingContainer.appendChild(numberingElement);
@@ -148,6 +157,9 @@ window.addEventListener('load', function () {
                 });
                 let numberingElement = document.createElement("input");
                 numberingElement.className = "small-input";
+                if (highlightByTwo.checked && ((i % 4 == 0) || ((i - 1) % 4 == 0))) {
+                    inputElement.className += " highlighted";
+                }
                 numberingElement.setAttribute("disabled", true)
                 numberingElement.value = bitsCount - 1 - i
                 rnumberingContainer.appendChild(numberingElement);

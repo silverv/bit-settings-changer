@@ -13,6 +13,9 @@ input[type=number]::-webkit-outer-spin-button {
       -webkit-appearance: none; 
       margin: 0; 
 }
+.highlighted {
+    background-color: rgb(107, 107, 107);
+}
 .inputs {
     width: 400px;
     display:flex;
